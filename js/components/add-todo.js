@@ -1,3 +1,5 @@
+import Alert from './alert.js';
+
 export default class AddTodo { 
 	constructor() { 
 		// add button 
@@ -5,16 +7,16 @@ export default class AddTodo {
 		// todo details
 		this.titleTodo = document.getElementById('title');
 		this.descriptionTodo = document.getElementById('description');
+
+		this.alert = new Alert('alert');
 	}
 
 	onClick(callback) {
 		this.btn.onclick = () => {
 			if (this.titleTodo.value === '' || this.descriptionTodo.value === '') {
-				// alert.classList.remove('d-none');
-				// alert.innerText = 'Title and description are required';
-				// return;
-				console.log('incorrecto');
+				this.alert.showMessage('Title and description are required');
 			} else {
+				this.alert.hide();
 				callback(this.titleTodo.value, this.descriptionTodo.value);
 			}
 		}

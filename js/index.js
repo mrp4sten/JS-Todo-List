@@ -7,4 +7,5 @@ window.onload = () => {
 
 	model.setView(view);
 	view.setModel(model);
+	view.render();
 }
